@@ -14,7 +14,6 @@ export const uploadImg = async (url, fileName ) =>{
         const ext = getExt(fileName);
         const blob = await response.blob()
         const nfile = new File([blob], fileName, { type:`image/${ext}` })
-        // console.log(nfile);
         formData.append("file", nfile);        
     })
     try {
@@ -40,8 +39,7 @@ export const uploadImg = async (url, fileName ) =>{
 
 }
 
-// to avoid an invalid account error while sending transactions we have to recreate an instance of our contract from the Minikit Method in perfomactions
-// to get an signed abstaction of the connected account and deployed contract.
+
 export const Minttoken = async (imgUrl, performActions) =>{
     if (!imgUrl) return;
     try{
@@ -56,26 +54,6 @@ export const Minttoken = async (imgUrl, performActions) =>{
         console.log(error);
     }
 }
-
-
-
-// export const GetMetaFromIPFS = async (ipfsUrl) =>{
-//     try{
-//         if (!ipfsUrl) return null;
-//         //Ipfs Request
-//         var config = {
-//           method: "get",
-//           url: ipfsUrl,
-//           headers: {
-//             Authorization: process.env.REACT_APP_JWT,
-//           },
-//         };
-//         const meta = await axios(config);
-//         return meta;
-//     } catch (error){
-//         console.log(error);
-//     }
-// }
 
 
 export const Subcount =  async ( performActions ) =>{
